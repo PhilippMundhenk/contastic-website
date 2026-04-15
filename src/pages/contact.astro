@@ -1,0 +1,53 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Contact" description="Get in touch with the Contastic project — report issues, ask questions, or contribute.">
+  <div class="hero" style="padding:3rem 1.5rem">
+    <h1>Contact</h1>
+    <p>Questions, bug reports, or contributions — we're happy to hear from you.</p>
+  </div>
+
+  <section>
+    <div class="container">
+      <h2>Get in touch</h2>
+      <p class="lead">The best way to reach us depends on what you need.</p>
+      <div class="features">
+        <div class="feature">
+          <div class="icon">🐛</div>
+          <h3>Bug reports &amp; feature requests</h3>
+          <p>Open an issue on the relevant GitHub repository:</p>
+          <ul style="margin-top:0.75rem;list-style:disc;padding-left:1.25rem;font-size:0.95rem">
+            <li><a href="https://github.com/PhilippMundhenk/contastic/issues" target="_blank" rel="noopener">contastic-server</a></li>
+            <li><a href="https://github.com/PhilippMundhenk/contastic-web/issues" target="_blank" rel="noopener">contastic-web</a></li>
+            <li><a href="https://github.com/PhilippMundhenk/contastic-android/issues" target="_blank" rel="noopener">contastic-android</a></li>
+          </ul>
+        </div>
+        <div class="feature">
+          <div class="icon">💡</div>
+          <h3>Security vulnerabilities</h3>
+          <p>Please do <strong>not</strong> post security issues publicly. Instead, open a GitHub Security Advisory or contact the maintainer directly via the GitHub profile.</p>
+          <p style="margin-top:0.75rem"><a href="https://github.com/PhilippMundhenk" target="_blank" rel="noopener">→ @PhilippMundhenk on GitHub</a></p>
+        </div>
+        <div class="feature">
+          <div class="icon">🤝</div>
+          <h3>Contributing</h3>
+          <p>Pull requests are welcome. Please open an issue first to discuss major changes. See the developer wiki for setup instructions.</p>
+          <p style="margin-top:0.75rem"><a href="https://github.com/PhilippMundhenk/contastic/blob/main/contastic-server/docs/development.md" target="_blank" rel="noopener">→ Development guide</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="container">
+      <h2>Staging server</h2>
+      <p class="lead">Try Contastic without self-hosting.</p>
+      <p>The public staging server is available for testing:</p>
+      <ul style="margin-top:1rem;list-style:disc;padding-left:1.5rem;line-height:2">
+        <li>Web app: <a href="https://web.staging.contastic.mundhenk.info" target="_blank" rel="noopener">web.staging.contastic.mundhenk.info</a></li>
+        <li>API: <a href="https://staging.contastic.mundhenk.info/api/v1/docs" target="_blank" rel="noopener">staging.contastic.mundhenk.info/api/v1/docs</a></li>
+      </ul>
+      <p style="margin-top:1rem;color:var(--text-muted);font-size:0.9rem">The staging server is for testing only. Do not store sensitive data on it.</p>
+    </div>
+  </section>
+</Base>

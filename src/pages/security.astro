@@ -1,0 +1,118 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Security" description="Contastic security model: RSA-OAEP end-to-end encryption, zero-knowledge server, PBKDF2 key storage, and hardened backend.">
+  <div class="hero" style="padding:3rem 1.5rem">
+    <h1>Security</h1>
+    <p>End-to-end encryption you can verify — because trust shouldn't require blind faith.</p>
+  </div>
+
+  <section>
+    <div class="container">
+      <h2>Zero-knowledge server</h2>
+      <p class="lead">The Contastic server is intentionally blind to your private data.</p>
+      <div class="features">
+        <div class="feature">
+          <div class="icon">🚫</div>
+          <h3>No plaintext private data</h3>
+          <p>Private contact fields are encrypted on your device with the recipient's RSA public key before upload. The server stores only the resulting ciphertext.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🔑</div>
+          <h3>Private keys stay local</h3>
+          <p>Your RSA private key is generated locally and never transmitted in plaintext. An encrypted backup is optionally stored on the server — but only you can decrypt it.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">👁️</div>
+          <h3>What the server CAN see</h3>
+          <p>Email address, public RSA key, public contact fields (FN, EMAIL, etc. marked public), subscription relationships, and encrypted blobs. Nothing else.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="container">
+      <h2>Cryptographic design</h2>
+      <p class="lead">Standard algorithms, no proprietary crypto.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">①</div>
+          <div class="step-body">
+            <h3>Key generation: RSA-OAEP 2048-bit</h3>
+            <p>On registration, a 2048-bit RSA key pair is generated locally using the Web Crypto API (browser) or Android's KeyPairGenerator. Public exponent: 65537.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">②</div>
+          <div class="step-body">
+            <h3>Data encryption: RSA-OAEP/SHA-256</h3>
+            <p>Each private data value is independently encrypted with the recipient's RSA public key. MGF1 uses SHA-256 for both Android and Web Crypto interoperability.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">③</div>
+          <div class="step-body">
+            <h3>Key backup: PBKDF2+AES-GCM</h3>
+            <p>Private key backups are encrypted with AES-256-GCM. The AES key is derived from your password using PBKDF2 (100,000 iterations, SHA-256, 16-byte salt).</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">④</div>
+          <div class="step-body">
+            <h3>Password hashing: argon2 (bcrypt fallback)</h3>
+            <p>Passwords are hashed with argon2id server-side. Legacy bcrypt hashes are transparently upgraded to argon2 on next login.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Server hardening</h2>
+      <p class="lead">Defense-in-depth for the backend API.</p>
+      <div class="features">
+        <div class="feature">
+          <div class="icon">🛡️</div>
+          <h3>Rate limiting</h3>
+          <p>Login (5/min), register (3/hr), search (30/min), and subscription endpoints are rate-limited in production to prevent brute-force and abuse.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🚧</div>
+          <h3>Scanner ban middleware</h3>
+          <p>Any IP that probes non-API paths (e.g. /.env, /wp-admin) is automatically banned for 24 hours after two probes.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🌐</div>
+          <h3>Strict CORS</h3>
+          <p>Only explicitly allowlisted origins are permitted. No wildcard CORS policy.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">📏</div>
+          <h3>Request body limits</h3>
+          <p>Default 1 MB limit; 10 MB override for key backup uploads. Prevents memory exhaustion attacks.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">⏱️</div>
+          <h3>Constant-time auth checks</h3>
+          <p>Login performs a dummy hash comparison for non-existent users to prevent timing-based account enumeration.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🔐</div>
+          <h3>Non-root container</h3>
+          <p>The Docker container runs as a dedicated non-root <code>appuser</code> to limit the blast radius of any exploit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="container">
+      <h2>Open source</h2>
+      <p class="lead">You don't have to take our word for it.</p>
+      <p style="margin-bottom:1.5rem">All three components — server, web client, and Android app — are open source on GitHub. Audit the code, run your own instance, and contribute improvements.</p>
+      <a class="btn" href="https://github.com/PhilippMundhenk/contastic" target="_blank" rel="noopener" style="display:inline-block;background:var(--red);color:#fff;padding:0.75rem 1.5rem;border-radius:4px;font-weight:700;">View on GitHub</a>
+    </div>
+  </section>
+</Base>

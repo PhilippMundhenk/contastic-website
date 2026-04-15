@@ -1,0 +1,63 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Download" description="Download the Contastic Android app or try the web client.">
+  <div class="hero" style="padding:3rem 1.5rem">
+    <h1>Download</h1>
+    <p>Get started with Contastic on your preferred platform.</p>
+  </div>
+
+  <section>
+    <div class="container">
+      <h2>Choose your platform</h2>
+      <p class="lead">Contastic runs natively on Android and in any modern browser.</p>
+      <div class="download-grid">
+        <div class="download-card">
+          <div class="icon">🤖</div>
+          <h3>Android App</h3>
+          <p>Native Jetpack Compose app. Syncs contacts directly to your Android address book. Requires Android 8.0 or later.</p>
+          <a class="btn" href="https://github.com/PhilippMundhenk/contastic-android/releases" target="_blank" rel="noopener">Download APK</a>
+        </div>
+        <div class="download-card">
+          <div class="icon">🌐</div>
+          <h3>Web Client</h3>
+          <p>No installation needed. Use Contastic directly in your browser against the public staging server.</p>
+          <a class="btn" href="https://web.staging.contastic.mundhenk.info" target="_blank" rel="noopener">Open Web App</a>
+        </div>
+        <div class="download-card">
+          <div class="icon">🐳</div>
+          <h3>Self-host</h3>
+          <p>Run your own Contastic instance on your server. Docker Compose + Traefik — takes about 5 minutes.</p>
+          <a class="btn" href="https://github.com/PhilippMundhenk/contastic/blob/main/contastic-server/docs/deployment.md" target="_blank" rel="noopener">Deployment Guide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="container">
+      <h2>Build from source</h2>
+      <p class="lead">All source code is available on GitHub.</p>
+      <div class="features">
+        <div class="feature">
+          <div class="icon">🔧</div>
+          <h3>Android</h3>
+          <p>Clone <code>contastic-android</code>, open in Android Studio, run <code>./gradlew assembleDebug</code>.</p>
+          <p style="margin-top:0.75rem"><a href="https://github.com/PhilippMundhenk/contastic-android" target="_blank" rel="noopener">→ GitHub repo</a></p>
+        </div>
+        <div class="feature">
+          <div class="icon">⚡</div>
+          <h3>Web client</h3>
+          <p>Clone <code>contastic-web</code>, run <code>npm install && npm run dev</code>.</p>
+          <p style="margin-top:0.75rem"><a href="https://github.com/PhilippMundhenk/contastic-web" target="_blank" rel="noopener">→ GitHub repo</a></p>
+        </div>
+        <div class="feature">
+          <div class="icon">🐍</div>
+          <h3>Server</h3>
+          <p>Clone <code>contastic-server</code>, run <code>docker compose up -d</code>.</p>
+          <p style="margin-top:0.75rem"><a href="https://github.com/PhilippMundhenk/contastic" target="_blank" rel="noopener">→ GitHub repo</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

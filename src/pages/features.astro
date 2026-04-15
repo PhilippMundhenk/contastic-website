@@ -1,0 +1,87 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Features" description="Contastic features: end-to-end encryption, selective sharing, QR codes, Android contacts sync, and self-hosting.">
+  <div class="hero" style="padding:3rem 1.5rem">
+    <h1>Features</h1>
+    <p>Everything you need for private, flexible contact sharing.</p>
+  </div>
+
+  <section>
+    <div class="container">
+      <h2>Core features</h2>
+      <p class="lead">Built around privacy — not convenience for advertisers.</p>
+      <div class="features">
+        <div class="feature">
+          <div class="icon">🔑</div>
+          <h3>Client-side RSA encryption</h3>
+          <p>2048-bit RSA-OAEP keys are generated and stored on your device. Encryption and decryption happen locally. The server stores only encrypted blobs.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🎛️</div>
+          <h3>Selective per-subscriber sharing</h3>
+          <p>Choose individually which data fields (name, phone, address, etc.) to share with each subscriber. Change your mind at any time.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">📲</div>
+          <h3>QR code sharing</h3>
+          <p>Display your personal QR code so others can scan and add you instantly. Available in both the Android app and web client.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">📒</div>
+          <h3>Android address book sync</h3>
+          <p>Subscribed contacts are automatically synced to the Android Contacts app under a dedicated Contastic account — no manual export needed.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🔔</div>
+          <h3>Real-time notifications</h3>
+          <p>Receive instant WebSocket notifications when someone subscribes to you or approves your subscription request.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🔍</div>
+          <h3>Search by public data</h3>
+          <p>Find other Contastic users by their publicly shared name or email. No phone number harvesting, no social graph.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🔒</div>
+          <h3>Password-protected key backup</h3>
+          <p>Your private key is encrypted with PBKDF2+AES-GCM using your password and stored as an opaque backup on the server — only you can decrypt it.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🐳</div>
+          <h3>Docker deployment</h3>
+          <p>Deploy your own server in minutes with Docker Compose. Traefik handles TLS termination and Let's Encrypt certificates automatically.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">📋</div>
+          <h3>vCard-compatible fields</h3>
+          <p>Store any standard vCard field: FN, EMAIL, TEL, ADR, ORG, TITLE, URL, BDAY, and more.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="container">
+      <h2>Platform support</h2>
+      <p class="lead">Use Contastic anywhere.</p>
+      <div class="features">
+        <div class="feature">
+          <div class="icon">🤖</div>
+          <h3>Android</h3>
+          <p>Native app built with Jetpack Compose. Requires Android 8.0 (API 26) or later.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🌐</div>
+          <h3>Web</h3>
+          <p>Progressive web app built with React 19 and Material-UI. Works in any modern browser.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🖥️</div>
+          <h3>Self-hosted server</h3>
+          <p>FastAPI backend, PostgreSQL database, Traefik reverse proxy. Runs on any Linux server with Docker.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

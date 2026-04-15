@@ -1,0 +1,85 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Home" description="Contastic — the self-hosted, end-to-end encrypted address book. Share contact details securely with full privacy control.">
+  <div class="hero">
+    <h1>Your address book.<br/>Your rules.</h1>
+    <p>Contastic is a self-hosted, end-to-end encrypted contact sharing platform. Your data stays private — always.</p>
+    <a class="btn" href="/download">Get the App</a>
+    <a class="btn btn-outline" href="/features">Learn More</a>
+  </div>
+
+  <section class="alt">
+    <div class="container">
+      <h2>Why Contastic?</h2>
+      <p class="lead">Traditional address books sync your contacts to third-party servers. Contastic keeps you in control.</p>
+      <div class="features">
+        <div class="feature">
+          <div class="icon">🔐</div>
+          <h3>End-to-end encrypted</h3>
+          <p>Private contact data is encrypted on your device before it ever leaves. The server only stores encrypted blobs it cannot read.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🏠</div>
+          <h3>Self-hosted</h3>
+          <p>Run your own Contastic server in minutes using Docker. No accounts with third-party companies required.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">👥</div>
+          <h3>Subscription model</h3>
+          <p>You choose who can see your contact details and exactly which fields to share — per subscriber.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">📱</div>
+          <h3>Android + Web</h3>
+          <p>Native Android app syncs contacts to your address book. Web client works in any browser.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>How it works</h2>
+      <p class="lead">Simple for users. Zero-knowledge for the server.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h3>Register and generate your keys</h3>
+            <p>When you sign up, an RSA key pair is generated locally in your browser or on your phone. Your private key never leaves your device.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h3>Add your contact data</h3>
+            <p>Fill in your name, phone, address, or any vCard fields you like. Mark each field as public or private.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h3>Share your QR code</h3>
+            <p>Others scan your QR code (or search by email) to find you and request access to your private data.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h3>Approve and share selectively</h3>
+            <p>Review subscription requests and choose exactly which private fields to share with each person. Data is encrypted client-side with their public key.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="container" style="text-align:center">
+      <h2>Ready to take back your address book?</h2>
+      <p class="lead" style="margin-bottom:1.5rem">Install the Android app or try the web client on our staging server.</p>
+      <a class="btn hero" href="/download" style="background:var(--red);color:#fff;padding:0.75rem 2rem;border-radius:4px;font-weight:700;font-size:1rem;">Download Now</a>
+    </div>
+  </section>
+</Base>
