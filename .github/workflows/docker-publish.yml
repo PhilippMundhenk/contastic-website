@@ -38,3 +38,27 @@ jobs:
           tags: ghcr.io/${{ steps.lc_owner.outputs.owner }}/contastic-website:latest
           labels: |
             org.opencontainers.image.source=${{ github.repository }}
+
+  deploy:
+    name: Deploy to staging
+    needs: [build-and-push]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    concurrency:
+      group: deploy-website
+      cancel-in-progress: false
+
+    steps:
+      - name: SSH deploy
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_DEPLOY_KEY }}
+          script_stop: true
+          script: |
+            set -euo pipefail
+            cd /root/contastic
+            docker compose pull website
+            docker compose up -d --no-deps website
+            docker image prune -f
