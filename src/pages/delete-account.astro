@@ -1,0 +1,116 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Delete Your Account" description="How to delete your Contastic account and all associated data.">
+  <div class="hero" style="padding:3rem 1.5rem">
+    <h1>Delete Your Account</h1>
+    <p>You have the right to erase all your data at any time. Deletion is immediate and permanent.</p>
+  </div>
+
+  <section>
+    <div class="container">
+      <h2>What gets deleted</h2>
+      <p class="lead">Account deletion removes everything associated with your account from the server.</p>
+      <div class="features">
+        <div class="feature">
+          <div class="icon">🗑️</div>
+          <h3>Your account data</h3>
+          <p>
+            • Your email address and password hash<br/>
+            • Your RSA public key<br/>
+            • Your encrypted private key backup<br/>
+            • All contact data fields (public and private)
+          </p>
+        </div>
+        <div class="feature">
+          <div class="icon">🔗</div>
+          <h3>Your relationships</h3>
+          <p>
+            • All subscriptions (both directions)<br/>
+            • All encrypted data shared with subscribers<br/>
+            • All encrypted data shared with you by others<br/>
+            • All pending subscription requests
+          </p>
+        </div>
+        <div class="feature">
+          <div class="icon">⚡</div>
+          <h3>Immediate effect</h3>
+          <p>
+            All active sessions are invalidated instantly — on every device. Existing access tokens stop working the moment the account is gone. Re-login with the same email is not possible.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="container">
+      <h2>How to delete your account</h2>
+      <p class="lead">Choose the method that works for you.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h3>Via the Android app</h3>
+            <p>Open the app → tap the menu (☰) → Settings → find your account → tap <strong>Delete</strong>. You will be asked to type your email address to confirm before the button enables.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h3>Via the web app</h3>
+            <p>Log in at <a href="https://web.staging.contastic.mundhenk.info" target="_blank" rel="noopener">web.staging.contastic.mundhenk.info</a> → open the <strong>Settings</strong> tab → click <strong>Delete Account</strong>. Type your email to confirm.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h3>Via the web form (no app required)</h3>
+            <p>If you no longer have access to the app, use the self-service deletion form below. Enter your email and password to confirm — no account login is required.</p>
+            <a class="delete-btn" href="https://staging.contastic.mundhenk.info/deleteAccount" target="_blank" rel="noopener">
+              Open account deletion form →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>After deletion</h2>
+      <p class="lead">A few things to know once the process completes.</p>
+      <div class="features">
+        <div class="feature">
+          <div class="icon">📱</div>
+          <h3>Other devices log out</h3>
+          <p>Any device currently connected via WebSocket receives an immediate logout signal. Devices that are offline will be rejected the next time they try to reach the server.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🔑</div>
+          <h3>Your email is freed</h3>
+          <p>The email address is released and could be re-registered as a brand-new account with new keys. The deleted account cannot be restored.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">👥</div>
+          <h3>Subscribers are unaffected</h3>
+          <p>People who subscribed to you keep their own locally-decrypted copy of data they had already received. The server-side encrypted copies are deleted.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .delete-btn {
+    display: inline-block;
+    margin-top: 0.75rem;
+    background: var(--red);
+    color: #fff;
+    font-weight: 600;
+    padding: 0.6rem 1.4rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+  }
+  .delete-btn:hover { background: var(--red-dark); text-decoration: none; }
+</style>
