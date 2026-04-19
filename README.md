@@ -1,3 +1,7 @@
+> [!WARNING]
+> **This repository has been archived.** Development continues in the monorepo at
+> https://github.com/PhilippMundhenk/contastic (subdirectory `website/`).
+
 # contastic-website
 
 Marketing site for [Contastic](https://github.com/PhilippMundhenk/contastic) — the self-hosted, end-to-end encrypted address book.
